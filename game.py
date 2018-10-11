@@ -3,7 +3,8 @@ from player import Player
 
 class Game:
     def __init__(self):
-        pass
+        self.gane = self.play_game
+        self.get_choice = self.get_player_choice
     
     
     

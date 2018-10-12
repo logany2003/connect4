@@ -1,12 +1,12 @@
 
 
 class Board:
-    def __init__(self):
-        self.board = [[]]
+    def __init__(self, width, height):
+        self.board = [[" "]*width for i in range(height)]
         self.width = width
         self.height = height
     
-    def place_piece(self, piece, column):
+    def add_piece(self, piece, column):
         pass
 
     def empty_board(self):
@@ -18,10 +18,9 @@ class Board:
     def is_full(self):
         pass
     
-    def display_board(self):
+    def disp_board(self):
         pass
-        
-    
+          
 
 
 
@@ -29,8 +28,9 @@ class Board:
 
 
 
-
-if __name__ == "__main__":
-    #test code
-    pass
+#
+#if __name__ == "__main__":
+#    #test code
+#    b = Board(3,3)
+#    b.disp_board()
     

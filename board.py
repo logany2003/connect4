@@ -13,13 +13,36 @@ class Board:
         pass
     
     def check_win(self):
-        pass
+        for i in range(len(self.board)):
+            for j in range(len(self.board[i])):
+                pass
     
     def is_full(self):
-        pass
+        for i in range(len(self.board)):
+            for j in range(len(self.board[i])):
+                if self.board[i][j] == ' ':
+                    return False
+                else:
+                    return True
     
     def disp_board(self):
-        pass
+        print("-" *(2*self.width), end = ' ')
+        print()
+        
+        for i in range(len(self.board)):
+            for j in range(len(self.board[i])):
+                for row in self.board:
+                    for ele in row:
+                        print(ele,end=' ')
+        print()
+            
+        print("-" *(2*self.width), end = ' ')
+        print()
+        
+        for i in range(len(self.board)):
+            print(i+1, end= ' ')
+            
+        
           
 
 
@@ -29,8 +52,7 @@ class Board:
 
 
 #
-#if __name__ == "__main__":
-#    #test code
-#    b = Board(3,3)
-#    b.disp_board()
+if __name__ == "__main__":
+    #test code
+    pass
     

@@ -7,7 +7,12 @@ class Board:
         self.height = height
     
     def add_piece(self, piece, column):
-        pass
+        for row in range(self.height-1 , -1, -1):
+            if self.board[row][column-1] == ' ':
+                self.board[row][column-1] = piece
+                break
+        else:
+            raise ValueError("invalid")
 
     def empty_board(self):
         pass
@@ -26,26 +31,27 @@ class Board:
                     return True
     
     def disp_board(self):
-        print("-" *(2*self.width), end = ' ')
+        print("-" *(2*self.width-1), end = ' ')
         print()
         
         for i in range(len(self.board)):
             for j in range(len(self.board[i])):
-                for row in self.board:
-                    for ele in row:
-                        print(ele,end=' ')
-        print()
+                print(self.board[i][j],end=' ')
+            print()
             
-        print("-" *(2*self.width), end = ' ')
+        print("-" *(2*self.width-1), end = ' ')
         print()
         
         for i in range(len(self.board)):
-            print(i+1, end= ' ')
+            if i < self.width:
+                print(i+1, end= ' ')
             
         
           
-
-
+def main():
+     b = Board(6,7)
+     b.add_piece("y", 2)
+     b.disp_board()
 
 
 
@@ -53,6 +59,6 @@ class Board:
 
 #
 if __name__ == "__main__":
-    #test code
-    pass
+    main()
+
     

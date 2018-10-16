@@ -25,8 +25,8 @@ class Board:
                     for c in range(len(check)):
                         if self.board[i][j] == self.board[i][j+1] == self.board[i][j+2] == self.board[i][j+3]:
                             return True
-                        if self.board[i][j] == self.board[i+1][j] == self.board[i+2][j] ==  self.board[i+3][j]:
-                            return True
+#                        if self.board[i][j] == self.board[i+1][j] == self.board[i+2][j] ==  self.board[i+3][j]:
+#                            return True
         return False
                 
                 

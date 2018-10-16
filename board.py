@@ -18,11 +18,19 @@ class Board:
         self.board = [[" "]*self.width for i in range(self.height)]
     
     def check_win(self):
-        for i in range(len(self.board)):
-            for j in range(len(self.board[i])):
+        for i in range(self.height):
+            for j in range(self.width-3):
                 if self.board[i][j] != " ":
-                    win = [self.board[i][j]]
-                    print(win, end = ' ')
+                    check = [self.board[i][j] , self.board[i][j+1], self.board[i][j+2], self.board[i][j+3]]
+                    for c in range(len(check)):
+                        if self.board[i][j] == self.board[i][j+1] == self.board[i][j+2] == self.board[i][j+3]:
+                            return True
+                        if self.board[i][j] == self.board[i+1][j] == self.board[i+2][j] ==  self.board[i+3][j]:
+                            return True
+        return False
+                
+                
+               
                 
     
     def is_full(self):
@@ -51,15 +59,15 @@ class Board:
         
           
 def main():
-     b = Board(5,3)
+     b = Board(7,6)
      b.add_piece("y", 3)
      b.add_piece("y", 1)
-     b.add_piece("y",2)
-     b.add_piece("y", 4)
-     b.add_piece("x",2)
+     b.add_piece("0",2)
+     b.add_piece("y",4)
+     
      b.disp_board()
      b.check_win()
-
+     print(b.check_win())
 
 
 

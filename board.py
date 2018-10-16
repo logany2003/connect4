@@ -12,15 +12,18 @@ class Board:
                 self.board[row][column-1] = piece
                 break
         else:
-            raise ValueError("invalid")
+            raise ValueError("the row is already full, input invalid")
 
     def empty_board(self):
-        pass
+        self.board = [[" "]*self.width for i in range(self.height)]
     
     def check_win(self):
         for i in range(len(self.board)):
             for j in range(len(self.board[i])):
-                pass
+                if self.board[i][j] != " ":
+                    win = [self.board[i][j]]
+                    print(win, end = ' ')
+                
     
     def is_full(self):
         for i in range(len(self.board)):
@@ -42,16 +45,20 @@ class Board:
         print("-" *(2*self.width-1), end = ' ')
         print()
         
-        for i in range(len(self.board)):
-            if i < self.width:
-                print(i+1, end= ' ')
+        for row in range(len(self.board[i])):
+            print(row+1, end= ' ')
             
         
           
 def main():
-     b = Board(6,7)
-     b.add_piece("y", 2)
+     b = Board(5,3)
+     b.add_piece("y", 3)
+     b.add_piece("y", 1)
+     b.add_piece("y",2)
+     b.add_piece("y", 4)
+     b.add_piece("x",2)
      b.disp_board()
+     b.check_win()
 
 
 

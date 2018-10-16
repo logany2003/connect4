@@ -1,18 +1,18 @@
 
 
 class Player:
-    def __init__(self, piece, name):
+    def __init__(self, piece):
         self.piece = piece
-        self.name = name
+        self.name = self.get_name()
     
     def get_name(self):
         print("what is your name? ")
-        name = input(": ")
+        name = input("> ")
         return name
 
     def get_choice(self, Board):
-        print("Which column would you like to place your piece in?")
-        choice =input(": ")
+        print(f"{self.name} which column would you like to place your piece in?")
+        choice = int(input("> "))
         return choice
 
 
@@ -20,10 +20,9 @@ class Player:
 
 if __name__ == "__main__":
     # test code
-    # p = Player("red","AG")
-    # print(p.name)
+    # p = Player("red")
+    # print(p.choice)
     pass
-
 
 
 

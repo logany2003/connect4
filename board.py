@@ -12,21 +12,26 @@ class Board:
                 self.board[row][column-1] = piece
                 break
         else:
-            raise ValueError("the row is already full, input invalid")
+            raise ValueError("the column is already full, input invalid")
 
     def empty_board(self):
         self.board = [[" "]*self.width for i in range(self.height)]
     
     def check_win(self):
         for i in range(self.height):
-            for j in range(self.width-3):
+            for j in range(self.width-3):   #Horizontal Check
                 if self.board[i][j] != " ":
-                    check = [self.board[i][j] , self.board[i][j+1], self.board[i][j+2], self.board[i][j+3]]
-                    for c in range(len(check)):
+                    hcheck = [self.board[i][j] , self.board[i][j+1], self.board[i][j+2], self.board[i][j+3]]
+                    for c in range(len(hcheck)):
                         if self.board[i][j] == self.board[i][j+1] == self.board[i][j+2] == self.board[i][j+3]:
                             return True
-#                        if self.board[i][j] == self.board[i+1][j] == self.board[i+2][j] ==  self.board[i+3][j]:
-#                            return True
+        for i in range(self.height-3):      # Vertical Check
+            if self.board[i][j] != " ":
+                vcheck = [self.board[i][j] , self.board[i+1][j], self.board[i+2][j], self.board[i+3][j]]
+                for c in range(len(vcheck)):
+                    if self.board[i][j] == self.board[i+1][j] == self.board[i+2][j] ==  self.board[i+3][j]:
+                        return True
+        
         return False
                 
                 
@@ -64,6 +69,10 @@ def main():
      b.add_piece("y", 1)
      b.add_piece("0",2)
      b.add_piece("y",4)
+     b.add_piece("y",4)
+     b.add_piece("y",4)
+     b.add_piece("y",4)
+     
      
      b.disp_board()
      b.check_win()

@@ -25,12 +25,18 @@ class Board:
                     for c in range(len(hcheck)):
                         if self.board[i][j] == self.board[i][j+1] == self.board[i][j+2] == self.board[i][j+3]:
                             return True
+                        
         for i in range(self.height-3):      # Vertical Check
             if self.board[i][j] != " ":
                 vcheck = [self.board[i][j] , self.board[i+1][j], self.board[i+2][j], self.board[i+3][j]]
                 for c in range(len(vcheck)):
                     if self.board[i][j] == self.board[i+1][j] == self.board[i+2][j] ==  self.board[i+3][j]:
                         return True
+                    
+        for i in range(self.height-3):
+            pass
+                    
+        
         
         return False
                 

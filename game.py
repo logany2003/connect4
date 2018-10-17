@@ -15,7 +15,9 @@ class Game:
         self.players.append(Player('o'))
         
         while True:
+            print()
             self.board.disp_board()
+            print()
             try:
                 print()
                 self.board.add_piece(self.players[self.turn].piece, self.players[self.turn].get_choice(self.board))
@@ -38,5 +40,6 @@ class Game:
     
 if __name__ == "__main__":
     # test code
-    game = Game(Board(6,7))
-    game.play_game()
+    # game = Game(Board(6,7))
+    # game.play_game()
+    pass

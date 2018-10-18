@@ -36,15 +36,15 @@ class Board:
                     if self.board[i][j] == self.board[i+1][j] == self.board[i+2][j] ==  self.board[i+3][j]:
                         return True
                     
-        for i in range(self.height-3):      # Major Diag Check
+        for i in range(self.height-3):      # right Diag Check
             for j in range(self.width-3):
                 if self.board[i][j] != " ":
-                    mdcheck = [self.board[i][j] , self.board[i+1][j+1], self.board[i+2][j+2], self.board[i+3][j+3]]
-                    for c in range(len(mdcheck)):
+                    rdcheck = [self.board[i][j] , self.board[i+1][j+1], self.board[i+2][j+2], self.board[i+3][j+3]]
+                    for c in range(len(rdcheck)):
                         if self.board[i][j] == self.board[i+1][j+1] == self.board[i+2][j+2] ==  self.board[i+3][j+3]:
                             return True
         
-        for i in range(self.height-3):      # Other Diag Check
+        for i in range(self.height-3):      # left Diag Check
             for j in range(self.width-3):
                 if self.board[i][j] != " ":
                     ldcheck = [self.board[i][j] , self.board[i+1][j-1], self.board[i+2][j-2], self.board[i+3][j-3]]

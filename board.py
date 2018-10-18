@@ -90,7 +90,7 @@ class Board:
 def main():
     
      b = Board(7,6)
-     b.add_piece(1, "0")
+     b.add_piece(1, "4")
      b.add_piece(1, "0")
      b.add_piece(1, "0")
      b.add_piece(1, "4")
@@ -101,8 +101,12 @@ def main():
      b.add_piece(4, "4")
      b.add_piece(3, "4")
      b.add_piece(3, "0")
+     b.add_piece(4, "4")
      b.add_piece(4, "0")
-     b.add_piece(4, "0")
+     b.add_piece(5, "0")
+     b.add_piece(5, "0")
+     b.add_piece(5, "0")
+     b.add_piece(5, "4")
   
      
      

@@ -6,13 +6,13 @@ class Board:
         self.width = width
         self.height = height
     
-    def add_piece(self, piece, column):
+    def add_piece(self, column, piece):
         for row in range(self.height-1 , -1, -1):
-            if self.board[row][column-1] == ' ':
+            if self.board[row][column-1] == " ":
                 self.board[row][column-1] = piece
                 break
         else:
-            raise ValueError("the column is already full, input invalid")
+            raise ValueError("Column Full")
 
     def empty_board(self):
         self.board = [[" "]*self.width for i in range(self.height)]
@@ -33,8 +33,23 @@ class Board:
                     if self.board[i][j] == self.board[i+1][j] == self.board[i+2][j] ==  self.board[i+3][j]:
                         return True
                     
-        for i in range(self.height-3):
-            pass
+        for i in range(self.height-3):      # Major Diag Check
+            for j in range(self.width-3):
+                if self.board[i][j] != " ":
+                    mdcheck = [self.board[i][j] , self.board[i+1][j+1], self.board[i+2][j+2], self.board[i+3][j+3]]
+                    for c in range(len(mdcheck)):
+                        if self.board[i][j] == self.board[i+1][j+1] == self.board[i+2][j+2] ==  self.board[i+3][j+3]:
+                            return True
+        
+        for i in range(self.height-3):      # Right Diag Check
+            for j in range(self.width-3):
+                if self.board[i][j] != " ":
+                    ldcheck = [self.board[i][j] , self.board[i-1][j-1], self.board[i-2][j-2], self.board[i-3][j-3]]
+                    for c in range(len(ldcheck)):
+                        if self.board[i][j] == self.board[i-1][j-1] == self.board[i-2][j-2] ==  self.board[i-3][j-3]:
+                            return True
+            
+            
                     
         
         
@@ -53,7 +68,7 @@ class Board:
                     return True
     
     def disp_board(self):
-        print("-" *(2*self.width-1), end = ' ')
+        print("-" *(2*self.width), end = ' ')
         print()
         
         for i in range(len(self.board)):
@@ -61,7 +76,7 @@ class Board:
                 print(self.board[i][j],end=' ')
             print()
             
-        print("-" *(2*self.width-1), end = ' ')
+        print("-" *(2*self.width), end = ' ')
         print()
         
         for row in range(len(self.board[i])):
@@ -70,25 +85,28 @@ class Board:
         
           
 def main():
+    
      b = Board(7,6)
-     b.add_piece("y", 3)
-     b.add_piece("y", 1)
-     b.add_piece("0",2)
-     b.add_piece("y",4)
-     b.add_piece("y",4)
-     b.add_piece("y",4)
-     b.add_piece("y",4)
-     
+     b.add_piece(1, "y")
+     b.add_piece(2, "0")
+     b.add_piece(2, "y")
+     b.add_piece(3, "0")
+     b.add_piece(3, "0")
+     b.add_piece(3, "y")
+     b.add_piece(4, "0")
+     b.add_piece(4, "0")
+     b.add_piece(4, "0")
+     b.add_piece(4, "y")
      
      b.disp_board()
      b.check_win()
      print(b.check_win())
 
-
+#
 
 
 #
 if __name__ == "__main__":
     main()
 
-    
+#    

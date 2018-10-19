@@ -7,7 +7,8 @@ class Game:
         self.players = [] #makes player list
         self.board = board #assigns board
     
-    def play_game(self): #runs the game
+    def play_game(self):
+        '''runs the game of connect 4'''
         print("Welcome to connect 4!")
         print("First Player: ")
         self.players.append(Player('x'))
@@ -26,12 +27,12 @@ class Game:
                 except Exception as e:
                     print(f'Error {e}')
             if self.board.check_win():
-                print(f"{self.players[self.turn]} wins")
-                self.board.dispay_board()
+                self.board.disp_board()
+                print(f"{self.players[self.turn].name} wins")
                 return
             if self.board.is_full():
+                self.board.disp_board()
                 print("Draw")
-                self.board.display_board()
                 return
             self.turn = (self.turn + 1) % 2
             

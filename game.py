@@ -3,11 +3,11 @@ from player import Player
 
 class Game:
     def __init__(self, board):
-        self.turn = 0
-        self.players = []
-        self.board = board
+        self.turn = 0 #assigns players turn
+        self.players = [] #makes player list
+        self.board = board #assigns board
     
-    def play_game(self):
+    def play_game(self): #runs the game
         print("Welcome to connect 4!")
         print("First Player: ")
         self.players.append(Player('x'))

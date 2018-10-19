@@ -45,12 +45,12 @@ class Board:
                         if self.board[i][j] == self.board[i+1][j+1] == self.board[i+2][j+2] ==  self.board[i+3][j+3]:
                             return True
         
-        for i in range(self.height-3):      # minor Diag Check
+        for i in range(3,self.height):      # minor Diag Check
             for j in range(self.width-3):
                 if self.board[i][j] != " ":
-                    midcheck = [self.board[i][j] , self.board[i+1][j-1], self.board[i+2][j-2], self.board[i+3][j-3]]
+                    midcheck = [self.board[i][j] , self.board[i-1][j+1], self.board[i-2][j+2], self.board[i-3][j+3]]
                     for c in range(len(midcheck)):
-                        if self.board[i][j] == self.board[i+1][j-1] == self.board[i+2][j-2] ==  self.board[i+3][j-3]:
+                        if self.board[i][j] == self.board[i-1][j+1] == self.board[i-2][j+2] ==  self.board[i-3][j+3]:
                             return True
             
             

@@ -7,6 +7,8 @@ class Board:
         self.height = height
     
     def add_piece(self, column, piece):
+        ''' Adds a piece to specified column in the board
+        '''
         for row in range(self.height-1 , -1, -1):
             if column <= 0 or column > self.width:
                 raise ValueError("Invalid Column")
@@ -18,9 +20,13 @@ class Board:
             
 
     def empty_board(self):
+        ''' Empties board by replacing all columns with " "
+        '''
         self.board = [[" "]*self.width for i in range(self.height)]
     
     def check_win(self):
+        ''' checks for 4 similar pieces in a row vertically, horizontally, and diagonally
+        '''
         for i in range(self.height):
             for j in range(self.width-3):   #Horizontal Check
                 if self.board[i][j] != " ":
@@ -64,6 +70,8 @@ class Board:
                 
     
     def is_full(self):
+        ''' Determines if board is full, based on space left in columns
+        '''
         for i in range(len(self.board)):
             for j in range(len(self.board[i])):
                 if self.board[i][j] == ' ':
@@ -72,6 +80,8 @@ class Board:
             return True
     
     def disp_board(self):
+        ''' displays current board
+        '''
         print("-" *(2*self.width), end = ' ')
         print()
         

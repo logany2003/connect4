@@ -44,14 +44,14 @@ class Board:
                         if self.board[i][j] == self.board[i+1][j+1] == self.board[i+2][j+2] ==  self.board[i+3][j+3]:
                             return True
         
-        for i in range(self.height-3):      # left Diag Check
-            for j in range(self.width-3):
-                if self.board[i][j] != " ":
-                    ldcheck = [self.board[i][j] , self.board[i+1][j-1], self.board[i+2][j-2], self.board[i+3][j-3]]
-                    for c in range(len(ldcheck)):
-                        if self.board[i][j] == self.board[i+1][j-1] == self.board[i+2][j-2] ==  self.board[i+3][j-3]:
-                            return True
-            
+#        for i in range(self.height-3):      # left Diag Check
+#            for j in range(self.width-3):
+#                if self.board[i][j] != " ":
+#                    ldcheck = [self.board[i][j] , self.board[i+1][j-1], self.board[i+2][j-2], self.board[i+3][j-3]]
+#                    for c in range(len(ldcheck)):
+#                        if self.board[i][j] == self.board[i+1][j-1] == self.board[i+2][j-2] ==  self.board[i+3][j-3]:
+#                            return True
+#            
             
                     
         
@@ -67,8 +67,8 @@ class Board:
             for j in range(len(self.board[i])):
                 if self.board[i][j] == ' ':
                     return False
-                else:
-                    return True
+        else:
+            return True
     
     def disp_board(self):
         print("-" *(2*self.width), end = ' ')
@@ -95,18 +95,15 @@ def main():
      b.add_piece(1, "0")
      b.add_piece(1, "4")
      b.add_piece(2, "4")
-     b.add_piece(2, "0")
-     b.add_piece(3, "4")
-     b.add_piece(4, "4")
-     b.add_piece(4, "4")
-     b.add_piece(3, "4")
      b.add_piece(3, "0")
-     b.add_piece(4, "4")
      b.add_piece(4, "0")
      b.add_piece(5, "0")
-     b.add_piece(5, "0")
-     b.add_piece(5, "0")
-     b.add_piece(5, "4")
+     b.add_piece(6, "0")
+     b.add_piece(2, "4")
+     b.add_piece(3, "0")
+     b.add_piece(3, "4")
+     
+  
   
      
      

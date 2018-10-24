@@ -10,7 +10,7 @@ class Board:
         ''' Adds a piece to specified column in the board
         '''
         for row in range(self.height-1 , -1, -1):
-            if column <= 0 or column > self.width:
+            if column <= 0 or column > self.width: # column 0 should raise an error
                 raise ValueError("Invalid Column")
             if self.board[row][column-1] == " ":
                 self.board[row][column-1] = piece
@@ -96,7 +96,7 @@ class Board:
         for row in range(len(self.board[i])):
             print(row+1, end= ' ')
             
-        
+    # does not print a newline at the end
           
 def main():
     
@@ -125,6 +125,7 @@ def main():
      
      
      
+     b.disp_board()
      b.disp_board()
      b.check_win()
      print(b.check_win())
